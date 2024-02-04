@@ -1,0 +1,29 @@
+{
+  "name": "full-stack-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-node": "ts-node",
+    "multiply": "ts-node multiplier.ts",
+    "calculate": "ts-node calculator.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicktvdd/Full-Stack-Typescript.git"
+  },
+  "keywords": [
+    "Typescript"
+  ],
+  "author": "Nick van den Dungen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nicktvdd/Full-Stack-Typescript/issues"
+  },
+  "homepage": "https://github.com/Nicktvdd/Full-Stack-Typescript#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescipt": "^1.0.0"
+  }
+}
