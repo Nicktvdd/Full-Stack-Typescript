@@ -1,4 +1,4 @@
-interface Values {
+interface ExerciseValues {
 	periodLength: number;
 	trainingDays: number;
 	success: boolean;
@@ -33,7 +33,7 @@ interface Values {
 		rating++;
 		ratingDescription = "Amazing, you did it!";
 	}
-	const summary: Values = {
+	const summary: ExerciseValues = {
 		periodLength: periodLength,
 		trainingDays: trainingDays,
 		success: success,
@@ -47,7 +47,9 @@ interface Values {
   }
   
   try {
-	const hoursPerDay: number[] = [3, 0, 2, 4.5, 0, 3, 1];
+	const args: string[] = process.argv.slice(2)
+
+	const hoursPerDay: number[] = args.map(arg => parseInt(arg, 10));
 	console.log(exerciseCalculator(hoursPerDay));
   } catch (error: unknown) {
 	let errorMessage = 'Something bad happened.'
