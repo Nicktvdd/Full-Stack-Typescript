@@ -8,13 +8,12 @@ interface ExerciseValues {
 	average: number;
   }
   
-  const exerciseCalculator= (hoursPerDay: number[]) => {
+  const exerciseCalculator= (hoursPerDay: number[], target: number) => {
 	let totalHours: number = 0;
 	let trainingDays = 0;
 	let success = false;
 	let rating = 1;
 	let ratingDescription = "It has to be better, you can do it!";
-	const target = 2;
 	const periodLength = hoursPerDay.length;
 
 	for (let i = 0; i < periodLength; i++) {
@@ -48,9 +47,10 @@ interface ExerciseValues {
   
   try {
 	const args: string[] = process.argv.slice(2);
+	const target: number = parseInt(args[0], 10);
 
 	const hoursPerDay: number[] = args.map(arg => parseInt(arg, 10));
-	console.log(exerciseCalculator(hoursPerDay));
+	console.log(exerciseCalculator(hoursPerDay, target));
   } catch (error: unknown) {
 	let errorMessage = 'Something bad happened.';
 	if (error instanceof Error) {
@@ -58,3 +58,5 @@ interface ExerciseValues {
 	}
 	console.log(errorMessage);
   }
+
+  export default exerciseCalculator;

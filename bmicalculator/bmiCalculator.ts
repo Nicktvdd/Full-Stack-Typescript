@@ -4,6 +4,7 @@ interface BMIValues {
   }
   
   const parseArguments = (args: string[]): BMIValues => {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	if (args.length < 4) throw new Error('Not enough arguments');
 	if (args.length > 4) throw new Error('Too many arguments');
   
