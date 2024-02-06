@@ -48,3 +48,5 @@ try {
 	}
 	console.log(errorMessage);
 }
+
+export default bmiCalculator;
