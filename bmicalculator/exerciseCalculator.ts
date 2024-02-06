@@ -41,20 +41,20 @@ interface ExerciseValues {
 		ratingDescription: ratingDescription,
 		target: target,
 		average: averageHours
-	}
+	};
 	return summary;
 
-  }
+  };
   
   try {
-	const args: string[] = process.argv.slice(2)
+	const args: string[] = process.argv.slice(2);
 
 	const hoursPerDay: number[] = args.map(arg => parseInt(arg, 10));
 	console.log(exerciseCalculator(hoursPerDay));
   } catch (error: unknown) {
-	let errorMessage = 'Something bad happened.'
+	let errorMessage = 'Something bad happened.';
 	if (error instanceof Error) {
-	  errorMessage += ' Error: ' + error.message;
+		errorMessage += ' Error: ' + error.message;
 	}
 	console.log(errorMessage);
   }

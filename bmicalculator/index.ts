@@ -23,8 +23,6 @@ app.get('/bmi', (req: Request, res: Response) => {
 	res.json({ height, weight, bmi });
 });
 
-
-
 const PORT = 3003;
 
 app.listen(PORT, () => {
