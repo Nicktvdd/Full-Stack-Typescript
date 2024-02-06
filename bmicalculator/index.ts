@@ -27,8 +27,8 @@ app.get('/bmi', (req: Request, res: Response) => {
 });
 
 app.post('/exercises', (req: Request, res: Response) => {
-	const exercises: number[] = req.body.daily_exercises;
-	const target: number = req.body.target;
+	const exercises: number[] = (req.body as { daily_exercises: number[] }).daily_exercises;
+	const target: number = (req.body as { target: number }).target;
 
 	if (!exercises || !target) {
 		res.status(400).json({ error: 'parameters missing' });
