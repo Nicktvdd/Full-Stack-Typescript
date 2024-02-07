@@ -1,6 +1,7 @@
 import data from '../data/diagnoses';
-import Diagnosis from '../data/diagnoses';
 import express from 'express';
+import cors from 'cors';
+
 const diagnosesRouter = express.Router();
 
 type Diagnosis = {
@@ -9,8 +10,10 @@ type Diagnosis = {
   latin?: string;
 };
 
+// Enable CORS for all routes on this router
+diagnosesRouter.use(cors());
+
 diagnosesRouter.get('/api/diagnoses', (_req, res) => {
-  res.set('Acces-Control-Allow-Origin', 'http://localhost:3000');
   res.send(data as Diagnosis[]);
 });
 
