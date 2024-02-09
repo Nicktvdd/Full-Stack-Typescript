@@ -1,14 +1,17 @@
 import data from "../data/patients";
-import { Patient } from "../types/Patient";
 import { v1 as uuid } from "uuid";
+import { Gender, Patient } from "../types/Patient";
 
-const patientData: Patient[] = data;
+const patientData: Patient[] = data.map(patient => ({
+	...patient,
+	gender: patient.gender as Gender
+}));
 
 const addPatient = (
 	name: string,
 	dateOfBirth: string,
 	ssn: string,
-	gender: string,
+	gender: Gender,
 	occupation: string
 ): Patient => {
 	const newPatient = {
