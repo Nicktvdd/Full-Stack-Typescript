@@ -32,7 +32,8 @@ patientsRouter.post('/api/patients', (req, res) => {
         const newPatientEntry = toNewPatientEntry(req.body as Patient);
         const newPatient = {
             id: uuid(),
-            ...newPatientEntry
+            ...newPatientEntry,
+            entries: [] as never[]
         };
         data.push(newPatient);
         res.json(newPatient);
