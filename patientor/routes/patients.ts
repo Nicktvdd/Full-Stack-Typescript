@@ -17,9 +17,19 @@ patientsRouter.get('/api/patients', (_req, res) => {
     res.send(simplePatients as patientSimple[]);
 });
 
+patientsRouter.get('/api/patients/:id', (req, res) => {
+    const id = req.params.id;
+    const patient = data.find(p => p.id === id);
+    if (patient) {
+        res.send(patient);
+    } else {
+        res.status(404).send('Patient not found');
+    }
+});
+
 patientsRouter.post('/api/patients', (req, res) => {
     try {
-        const newPatientEntry = toNewPatientEntry(req.body);
+        const newPatientEntry = toNewPatientEntry(req.body as Patient);
         const newPatient = {
             id: uuid(),
             ...newPatientEntry
