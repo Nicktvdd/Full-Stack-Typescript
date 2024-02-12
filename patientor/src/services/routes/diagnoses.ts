@@ -1,14 +1,10 @@
-import data from '../data/diagnoses';
+import data from '../../../data/diagnoses';
 import express from 'express';
 import cors from 'cors';
+import Diagnosis from '../../types/Diagnosis';
 
 const diagnosesRouter = express.Router();
 
-type Diagnosis = {
-  code: string;
-  name: string;
-  latin?: string;
-};
 
 // Enable CORS for all routes on this router
 diagnosesRouter.use(cors());

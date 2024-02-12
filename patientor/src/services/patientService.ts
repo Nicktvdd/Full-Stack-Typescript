@@ -1,6 +1,7 @@
-import data from "../data/patients";
+import data from "../../data/patients";
 import { v1 as uuid } from "uuid";
 import { Gender, Patient } from "../types/Patient";
+import { Entry } from "../types/Patient";
 
 const patientData: Patient[] = data.map(patient => ({
 	...patient,
@@ -12,7 +13,8 @@ const addPatient = (
 	dateOfBirth: string,
 	ssn: string,
 	gender: Gender,
-	occupation: string
+	occupation: string,
+	entries: Entry
 ): Patient => {
 	const newPatient = {
 		id: uuid(),
@@ -20,7 +22,8 @@ const addPatient = (
 		dateOfBirth,
 		ssn,
 		gender,
-		occupation
+		occupation,
+		entries: [entries]
 	};
 	patientData.push(newPatient);
 	return newPatient;

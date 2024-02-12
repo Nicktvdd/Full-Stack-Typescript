@@ -1,8 +1,8 @@
-import data from '../data/patients';
+import data from '../../../data/patients';
 import express from 'express';
 import cors from 'cors';
 import { v1 as uuid } from 'uuid';
-import { Patient } from '../types/Patient';
+import { Patient } from '../../types/Patient';
 import toNewPatientEntry from '../utils/newPatient';
 
 const patientsRouter = express.Router();
