@@ -26,14 +26,14 @@ const isNewBaseEntry = (entry: BaseEntry): entry is BaseEntry => {
   ) {
     throw new Error('Incorrect description, date or specialist');
   }
+  if (!entry.diagnosisCodes) {
+    throw new Error('Missing diagnosisCodes');
+  }
   return true;
 };
 
 const checkRequiredFields = (entries: Entry[]): boolean => {
-  if (!entries) {
-    return false;
-  }
-  if (entries.length === 0) {
+  if (!entries || entries.length === 0 || !Array.isArray(entries) || !entries.some(entry => entry)) {
     return false;
   }
   if (!entries.every(isNewBaseEntry)) {
