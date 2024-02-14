@@ -1,7 +1,7 @@
 import express from 'express';
-import diagnosesRouter from './src/services/routes/diagnoses';
-import pingRouter from './src/services/routes/ping';
-import patientsRouter from './src/services/routes/patients';
+import diagnosesRouter from './src/routes/diagnoses';
+import pingRouter from './src/routes/ping';
+import patientsRouter from './src/routes/patients';
 export const app = express();
 
 app.use(express.json());

@@ -1,7 +1,7 @@
-import data from '../../../data/diagnoses';
+import data from '../../data/diagnoses';
 import express from 'express';
 import cors from 'cors';
-import Diagnosis from '../../types/Diagnosis';
+import Diagnosis from '../types/Diagnosis';
 
 const diagnosesRouter = express.Router();
 

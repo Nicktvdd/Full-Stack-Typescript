@@ -1,10 +1,9 @@
-import data from '../../../data/patients';
+import data from '../../data/patients';
 import express from 'express';
 import cors from 'cors';
-import { parse, v1 as uuid } from 'uuid';
-import { Patient } from '../../types/Patient';
+import { v1 as uuid } from 'uuid';
+import { Patient, Entry } from '../types/Patient';
 import toNewPatientEntry from '../utils/newPatient';
-import { Entry } from '../../types/Patient';
 import parseEntry from '../utils/parseEntry';
 
 const patientsRouter = express.Router();
@@ -29,15 +28,14 @@ patientsRouter.get('/api/patients/:id', (req, res) => {
     }
 });
 
-
 patientsRouter.post('/api/patients/:id/entries', (req, res) => {
     const id = req.params.id;
     const patient = data.find(p => p.id === id);
 
     if (patient) {
         try {
-            const newEntry: Entry = req.body as Entry;
-            parseEntry(newEntry.id);
+            const newEntry: Entry[] = [req.body as Entry];
+            parseEntry(newEntry);
             const newPatient = {
                 ...patient,
                 entries: patient.entries.concat(newEntry)
